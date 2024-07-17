@@ -13,5 +13,6 @@ const connectDB = async () => {
         console.error('MongoDB connection error:', error);
     }
 };
+mongoose.Promise=global.Promise;
 
 module.exports = connectDB;
