@@ -15,3 +15,7 @@ A
 models/Movie.js,6\f\6fdbd1fce8e3b8dec49b8a9e559177acd15d08f8
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+B
+models/Director.js,4\5\45bf1b1897ffacda3386da5eb899f076d0d79327
+B
+routes/director.js,d\8\d8c61fe6b89df69e4f81c1ac2e75195c638b45ab
