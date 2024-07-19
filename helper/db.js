@@ -5,8 +5,7 @@ const dbUri = 'mongodb+srv://erencsahin:15661555@movieapi.lv2uad4.mongodb.net/?r
 const connectDB = async () => {
     try {
         await mongoose.connect(dbUri, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
+
         });
         console.log('MongoDB connected successfully.');
     } catch (error) {
