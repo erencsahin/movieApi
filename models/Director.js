@@ -8,7 +8,8 @@ const DirectorSchema=new Schema({
     createdAt:{
         type:Date,
         default:Date.now,
-    }
+    },
+    topFilm:String
 });
 
 module.exports=mongoose.model('director',DirectorSchema);

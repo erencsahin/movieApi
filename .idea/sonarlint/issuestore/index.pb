@@ -19,3 +19,5 @@ B
 models/Director.js,4\5\45bf1b1897ffacda3386da5eb899f076d0d79327
 B
 routes/director.js,d\8\d8c61fe6b89df69e4f81c1ac2e75195c638b45ab
+L
+public/stylesheets/style.css,3\7\373d337c32dec564fe0da458c6478733eec21e5a

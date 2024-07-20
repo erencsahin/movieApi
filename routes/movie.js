@@ -13,8 +13,6 @@ router.get('/top10', async function(req, res, next) {
   }
 });
 
-
-// POST /add - Create a new movie
 router.post('/add', async function(req, res, next) {
   const { title, imdb_score, category, country, year } = req.body;
   const movie = new Movie({
@@ -33,7 +31,6 @@ router.post('/add', async function(req, res, next) {
   }
 });
 
-// GET / - Get all movies
 router.get('/getall', async function(req, res, next) {
   try {
     const data = await Movie.find(undefined,undefined,undefined);
@@ -81,7 +78,6 @@ router.delete('/delete/:id', async function(req, res, next) {
     }
 });
 
-
 router.get('/between/:start_year/:end_year',  (req, res, next)=> {
   const {start_year,end_year} = req.params;
   const promise=Movie.find({
@@ -95,9 +91,5 @@ router.get('/between/:start_year/:end_year',  (req, res, next)=> {
     res.status(404).send('No Movie Found');
   })
 });
-
-
-
-
 
 module.exports = router;
