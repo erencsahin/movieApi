@@ -21,3 +21,9 @@ B
 routes/director.js,d\8\d8c61fe6b89df69e4f81c1ac2e75195c638b45ab
 L
 public/stylesheets/style.css,3\7\373d337c32dec564fe0da458c6478733eec21e5a
+>
+models/User.js,5\9\59316e83599fe4c2c79524096be7e107fbf4b61d
+9
+	config.js,1\6\1677f29b39bf4fb465d7689c0b6b95fc646fcdbc
+J
+middleware/verify-token.js,5\5\55b7df8eee755139ce0f2b5a246377e1e2eda8b4

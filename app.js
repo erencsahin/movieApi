@@ -2,7 +2,7 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
-const bodyParser=require('body-parser');
+const bodyParser = require('body-parser');
 const logger = require('morgan');
 
 const indexRouter = require('./routes');
@@ -11,10 +11,15 @@ const directorRouter = require('./routes/director');
 
 const app = express();
 
-//db connection
-const db=require('./helper/db');
+// db connection
+const db = require('./helper/db');
 db();
 
+const config = require('./config');
+app.set('api_secret_key', config.api_secret_key);
+
+// middleware
+const verifyToken = require('./middleware/verify-token');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,23 +33,29 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/api', verifyToken); // Bu satır ile tüm /api rotalarını koruma altına alıyorsunuz
 app.use('/api/movies', movieRouter);
 app.use('/api/directors', directorRouter);
 
 // catch 404 and forward to error handler
-app.use((req, res, next)=> {
+app.use((req, res, next) => {
   next(createError(404));
 });
 
 // error handler
-app.use((err, req, res, next)=> {
+app.use((err, req, res, next) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
   res.status(err.status || 500);
-  res.json({ error: {message: err.message,code:err.statusCode} });
+  res.json({
+    error: {
+      message: err.message,
+      code: err.status || 500, // err.statusCode yerine err.status kullanmak daha yaygındır
+    },
+  });
 });
 
 module.exports = app;
